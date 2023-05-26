@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2b8aa157ffa99ce49ad4940a254ee5a2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - weaponNuzzle: {instanceID: 0}
+  - bulletHolePrefab: {fileID: 8574093590532447440, guid: efafb588de2600e42b72a6fdaf4c60ed, type: 3}
+  - flashEffect: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
