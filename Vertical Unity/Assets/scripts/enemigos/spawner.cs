@@ -10,7 +10,7 @@ public class spawner : MonoBehaviour
     private float waveInterval = 15f;
     private int enemiesSpawned;
     public List<GameObject> spawnPositions = new List<GameObject>();
-    private int maxEnemies = 1;
+    public int maxEnemies = 1;
     public int killedEnemies;
     public int round;
     [SerializeField]
@@ -53,9 +53,9 @@ public class spawner : MonoBehaviour
         if (killedEnemies >= maxEnemies) 
         {
             round++;
-            maxEnemies = 6 + 4 * round;
+            maxEnemies = 1 * round;
             killedEnemies = 0;
-            StartCoroutine(SpawnEnemy(spawnInterval, enemy));
+            enemiesSpawned = 0;
             EventManager.current.UpdateRoundEvent.Invoke(round);
         }
     }

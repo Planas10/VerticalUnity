@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224476927066660735, guid: ff53f05e4e91c2e41b781e91dc913a10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -79.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224476927066660735, guid: ff53f05e4e91c2e41b781e91dc913a10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 179.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1354499073031090080, guid: ff53f05e4e91c2e41b781e91dc913a10, type: 3}
       propertyPath: m_RootOrder
@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4842216391066276505, guid: ff53f05e4e91c2e41b781e91dc913a10, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57a180ee744cb394f8e963d610735a53, type: 2}
     - target: {fileID: 7188660054606845992, guid: ff53f05e4e91c2e41b781e91dc913a10, type: 3}
       propertyPath: m_Name
       value: JuggerNaut Variant
@@ -106,5 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: 
   used: 0
-  cost: 0
-  hpMultiplyer: 0
+  cost: 2500
+  cashClip: {fileID: 8300000, guid: 83e16ab1a3c03ae47b98a4d211b810b2, type: 3}
+  hpMultiplyer: 1.5

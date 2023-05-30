@@ -37,12 +37,13 @@ public class WeaponController : MonoBehaviour
     public bool isautomatic;
     public virtual void Awake()
     {
-        extraAmmo = cargadores * cargadorSize;
-        ReloadAmmo();
+  
     }
 
     public virtual void Start()
     {
+        extraAmmo = cargadores * cargadorSize;
+        ReloadAmmo();
         cameraPlayerTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 

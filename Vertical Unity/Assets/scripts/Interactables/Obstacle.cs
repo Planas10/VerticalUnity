@@ -20,6 +20,7 @@ public class Obstacle : Interactuable
         player.Buy(cost);
         WeaponInfo_UI.instance.interactionText.gameObject.SetActive(false);
         EventManager.current.PlayEffect(cashClip);
+        EventManager.current.player.InteractAction = null;
         Destroy(gameObject);
     }
     public override string GetMessage(FPSController player)

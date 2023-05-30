@@ -10,13 +10,12 @@ public class WeaponBuy : Interactuable
     public int ammoCost;
     private void Awake()
     {
-      
+        GameObject instanciatedWeapon = Instantiate(weapon).gameObject;
+        instanciatedWeapon.transform.SetParent(transform.GetChild(0));
+        instanciatedWeapon.GetComponent<WeaponController>().enabled = false;
+        instanciatedWeapon.transform.localPosition = Vector3.zero;
     }
-    void Start()
-    {
-        GameObject obj = Instantiate(weapon.gameObject, transform.GetChild(0));
-        obj.transform.localPosition = Vector3.zero;
-    }
+
 
     void Update()
     {
@@ -43,6 +42,7 @@ public class WeaponBuy : Interactuable
         EventManager.current.PlayEffect(cashClip);
         player.weaponManager.AddWeapon(weapon);
         player.Buy(weaponCost);
+        player.weaponManager.SwitchLastWeapon();
     }
     public void BuyAmmo(FPSController player) 
     {

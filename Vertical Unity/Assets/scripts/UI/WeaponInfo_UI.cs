@@ -10,6 +10,7 @@ public class WeaponInfo_UI : MonoBehaviour
     public TMP_Text TotalBullets;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI roundText;
+    public TextMeshProUGUI roundTextPop;
     public TextMeshProUGUI interactionText;
     public Transform spawnPointsPoint;
     public GameObject scorePrefab;
@@ -36,6 +37,12 @@ public class WeaponInfo_UI : MonoBehaviour
     public void UpdateRound(int round)
     {
         roundText.text = "Round " + round.ToString();
+        roundTextPop.GetComponent<Animator>().SetTrigger("Play");
+        if (round <= 9)
+            roundTextPop.text = EventManager.current.convertroman(round);
+        else
+            roundTextPop.text = round.ToString();
+
     }
     public void SpawnScoreText(int score) 
     {

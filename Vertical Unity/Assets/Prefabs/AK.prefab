@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8aa157ffa99ce49ad4940a254ee5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   weaponNuzzle: {fileID: 3037797131935383414}
   hittableLayers:
     serializedVersion: 2

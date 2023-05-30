@@ -12,7 +12,7 @@ public class PlayerWeaponController : MonoBehaviour
     public Animator reloadAnim;
     public FPSController owner;
     public int activeWeaponIndex { get; private set; }
-
+    public int weaponSlotsCount = 3;
     private List<WeaponController> weaponSlots = new List<WeaponController>();
     bool reloading;
 
@@ -81,8 +81,10 @@ public class PlayerWeaponController : MonoBehaviour
         print(activeWeaponIndex);
     }
     //cambiar de arma
-    private void SwitchWeapon(int p_weaponIndex)
+    public void SwitchWeapon(int p_weaponIndex)
     {
+        if (p_weaponIndex >= weaponSlots.Count)
+            return;
         if (p_weaponIndex == activeWeaponIndex)
             return;
         for (int i = 0; i < weaponSlots.Count; i++)
@@ -108,7 +110,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
     public bool HasMaxWeapons() 
     {
-        return weaponParentSocket.childCount >= weaponSlots.Count;
+        return weaponSlots.Count >= weaponSlotsCount;
     }
     public bool HasWeapon(WeaponController weapon) 
     {
@@ -128,8 +130,11 @@ public class PlayerWeaponController : MonoBehaviour
     {
         return weaponSlots[activeWeaponIndex];
     }
-  
 
+    public void SwitchLastWeapon() 
+    {
+        SwitchWeapon(weaponSlots.Count - 1);
+    }
     IEnumerator ReloadAnim()
     {
         reloading = true;

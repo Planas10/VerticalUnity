@@ -17,9 +17,9 @@ public class FPSController : MonoBehaviour
     float v_mouse;
     public float maxhp = 100;
     public float hp;
-    public float hpBaseRegeneration = 10;
     [HideInInspector]
-    public float currenthpregeneration = 10;
+    public float currenthpregeneration;
+    public float hpBaseRegeneration;
     public float extrahpRegeneration = 10;
     public float maxhpRefeneration = 50;
 
@@ -81,7 +81,7 @@ public class FPSController : MonoBehaviour
     }
     public void GetDamage(float d) 
     {
-        currentEnergyRegeneration = energyBaseRegeneration;
+        currenthpregeneration = energyBaseRegeneration;
         hp -= d;
         if (hp <= maxhp * (100 - damagePercetnageEnable)/100)
             triggeredEffect = true;
@@ -209,15 +209,17 @@ public class FPSController : MonoBehaviour
     }
     public IEnumerator RegenHp()
     {
+        float refreshTime = 0.1f;
+        currenthpregeneration = hpBaseRegeneration;
         while (true)
         {
             if (hp < maxhp)
             {
-                currenthpregeneration += extrahpRegeneration * Time.deltaTime;
+                currenthpregeneration += extrahpRegeneration * refreshTime;
                 if (currenthpregeneration >= maxhpRefeneration)
                     currenthpregeneration = maxhpRefeneration;
 
-                hp += currenthpregeneration * Time.deltaTime;
+                hp += currenthpregeneration * refreshTime;
                 if (hp >= maxhp) 
                 {
                     triggeredEffect = false;
@@ -238,9 +240,9 @@ public class FPSController : MonoBehaviour
 
             }
             else
-                currentEnergyRegeneration = hpBaseRegeneration;
+                currenthpregeneration = hpBaseRegeneration;
 
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(refreshTime);
         }
     }
 }
